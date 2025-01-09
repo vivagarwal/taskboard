@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8080;
 
 // Configure CORS to allow credentials
 app.use(cors({
-    origin: ["http://localhost:3000"], // Your frontend URL
+    origin: ["http://localhost:5173","https://taskboard-frontend.onrender.com"], // Your frontend URL
     credentials: true,
 }));
 app.use(express.json());
