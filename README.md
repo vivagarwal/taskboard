@@ -38,7 +38,7 @@ install all dependencies - npm install
 start the frontend - npm run dev
 
 
-Deployment link : http://13.234.213.254:3000/
+Deployment link : https://taskboard-frontend.onrender.com
 
 
 
