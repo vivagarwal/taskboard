@@ -9,6 +9,13 @@
 Check out the live application here:
 
 🔗 [https://taskboard-frontend.onrender.com/](https://taskboard-frontend.onrender.com/)  
+
+---
+
+### 🎥 Application Demo
+
+![Application Demo](media/demo_task_board.gif)
+
 ---
 
 ## 🌟 Features
@@ -19,14 +26,6 @@ Check out the live application here:
 - 📅 **Task Categorization**: Tasks organized by status (`To Do`, `In Progress`, etc.).
 - 📋 **Priority and Deadlines**: Set priority levels and deadlines for tasks.
 - 🌐 **Full-Stack Solution**: React-based frontend with Express and MongoDB backend.
-
----
-
----
-
-### 🎥 Application Demo
-
-![Application Demo](media/demo_task_board.gif)
 
 ---
 
@@ -81,53 +80,114 @@ Follow these steps to set up the project locally:
 ```bash
 git clone https://github.com/vivagarwal/taskboard.git
 cd taskboard
+```
 
-Setting Up the Backend
+---
 
+### 2. Backend Setup
 1. Navigate to the backend directory:
-```bash
-cd backend
+   ```bash
+   cd backend
+   ```
 
-2.Install the required dependencies:
-```bash
-npm install
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-3.Create a .env file in the backend directory with the following variables:
-env
-MONGO_URI=<Your MongoDB URI>
-SECRET_KEY=<Your JWT Secret Key>
-Replace <Your MongoDB URI> with your MongoDB connection string and <Your JWT Secret Key> with a secure key.
+3. Create a `.env` file in the backend directory and add the following:
+   ```plaintext
+   MONGO_URI=<Your MongoDB Connection String>
+   SECRET_KEY=<Your JWT Secret Key>
+   ```
 
-4.Start the backend server:
-```bash
-npm start
-The backend server will run on http://localhost:8080 by default.
+4. Start the backend server:
+   ```bash
+   npm start
+   ```
 
-Setting Up the Frontend
+   The backend will run at `http://localhost:8080`.
 
-1.Navigate to the frontend directory:
+---
 
-```bash
-Copy code
+### 3. Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
 
-2.Install the required dependencies:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-Copy code
+3. Create a `.env` file in the frontend directory and add the following:
+   ```plaintext
+   VITE_BASE_URL=http://localhost:8080
+   ```
 
-3.Create a .env file in the frontend directory with the following variable:
+4. Start the frontend development server:
+   ```bash
+   npm run dev
+   ```
 
-env
-VITE_BASE_URL=http://localhost:8080
-This sets the base URL for API requests to point to your local backend server.
+   The frontend will run at `http://localhost:5173`.
 
+---
 
-4.Start the frontend development server:
+## 📦 Deployment
 
-```bash
-npm run dev
-The frontend application will run on http://localhost:5173 by default.
+### Backend Deployment on Render:
+1. Push your backend code to a GitHub repository.
+2. Log in to [Render](https://render.com/) and create a new **Web Service**.
+3. Add the environment variables:
+   - `MONGO_URI`
+   - `SECRET_KEY`
+4. Deploy the backend and note the live URL.
 
+### Frontend Deployment on Render:
+1. Push your frontend code to a GitHub repository.
+2. Log in to [Render](https://render.com/) and create a new **Web Service**.
+3. Add the environment variable:
+   - `VITE_BASE_URL` (set this to your live backend URL).
+4. Deploy the frontend.
+
+---
+
+## 📝 Example API Calls
+
+Here are a few example requests:
+
+### Create a Task
+```json
+POST /api/tasks
+
+{
+  "title": "Complete Documentation",
+  "description": "Write the README for TaskBoard",
+  "status": "To Do",
+  "priority": "High",
+  "deadline": "2025-01-20"
+}
+```
+
+**Response**:
+```json
+{
+  "message": "Task created successfully",
+  "task": {
+    "_id": "abc123",
+    "title": "Complete Documentation",
+    "description": "Write the README for TaskBoard",
+    "status": "To Do",
+    "priority": "High",
+    "deadline": "2025-01-20",
+    "user": "xyz456"
+  }
+}
+```
+
+---
 
 ## 🤝 Contributing
 
@@ -137,7 +197,7 @@ Contributions are welcome! Feel free to fork this repository and submit a pull r
 
 ## 🔒 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License.
 
 ---
 
@@ -148,8 +208,3 @@ For any questions, feel free to reach out via email or open an issue in the repo
 ---
 
 🎉 **Thank you for checking out the project! Happy Coding!**
-
----
-
-Let me know if you'd like further modifications!
-
